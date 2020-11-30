@@ -1,0 +1,2 @@
+https://rushter.com/blog/scipy-sparse-matrices/
+https://stackoverflow.com/questions/31469692/better-way-to-create-block-matrices-out-of-individual-blocks-in-numpy
