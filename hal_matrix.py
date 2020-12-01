@@ -1,6 +1,7 @@
 import numpy as np
 from error import *
 from scipy.sparse import dia_matrix, bmat
+import copy
 
 class Hal_Matrix:
     def __init__(self, n, d, data):
@@ -34,26 +35,59 @@ class Hal_Matrix:
             raise BroadcastError(self.d, y.d)
         
         # setting new dimensions 
-        if self.n != y.n:
-            self.n = max(self.n,y.n)
-        if self.d != y.d:
-            self.d = max(self.d,y.d)
+        n = max(self.n,y.n)
+        d = max(self.d,y.d)
 
         # adding data 
-        self.data = self.data + y.data
+        data = self.data + y.data
         # updatinig blocks
         self.blocks = []
-        for dia_data in self.data:
-            self.blocks.append(dia_matrix((dia_data,[0]),shape=(self.d,self.d)))
-        self.blocks = np.array(self.blocks).reshape(self.n,self.n)
-        # updating matrix
-        self.matrix=bmat(self.blocks)
-        self.shape = self.matrix.shape
+        return Hal_Matrix(n=n,d=d,data=data)
 
-    def dot(self, y):
+    def multiply(self, y):
+        """
+        Perform element wise multiplication
+        """
         if not isinstance(y, Hal_Matrix):
             raise TypeMismatchError(self, y)
         if self.n != y.n:
             raise ShapeMismatchError(self.n,y.n)
         if self.d != y.d:
             raise BlockShapeMismatchError(self.d,y.d)
+
+        data = self.data * y.data
+        return Hal_Matrix(n=self.n,d=self.d,data=data)
+        
+    def dot(self, y):
+        """
+        Find dot product of self and other matrix
+        """
+        if not isinstance(y, Hal_Matrix):
+            raise TypeMismatchError(self, y)
+        if self.n != y.n:
+            raise ShapeMismatchError(self.n,y.n)
+        if self.d != y.d:
+            raise BlockShapeMismatchError(self.d,y.d)
+        
+        new_dia_datas = []
+        for i in range(self.n):
+            left = self.data[i*self.n : (i+1)*self.n ]
+            for j in range(self.n):
+                right = y.data[j :  : self.n ]
+                new_dia_datas.append((left * right).sum(axis=0))
+        new_dia_datas = np.array(new_dia_datas)
+        return Hal_Matrix(n=self.n,d=self.d,data=new_dia_datas)
+
+    def to_numpy(self):
+        return self.matrix.todense()
+
+    def __add__(self,y):
+        return self.add(y)
+    
+    def __sub__(self,y):
+        new_y = copy.deepcopy(y)
+        new_y.data = new_y.data * -1
+        return self.add(new_y)
+
+    def __str__(self):
+        return 'Hal_Matrix of dimension (n) {} and block dimension (d) {} with data = \n{}'.format(self.n,self.d,self.data)
