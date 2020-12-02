@@ -1,3 +1,15 @@
+class DataShapeMismatchError(Exception):
+    """Exception raised for errors in the input salary.
+
+    Attributes:
+        shape -- required shape
+    """
+
+    def __init__(self, shape):
+        self.shape = shape
+        self.message = 'data is of incorrect shape, it shpuld be {}'.format(shape)
+        super().__init__(self.message)
+
 class TypeMismatchError(Exception):
     """Exception raised for errors in the input salary.
 
@@ -42,6 +54,10 @@ class BlockShapeMismatchError(Exception):
 
 class BroadcastError(Exception):
     """Exception raised for errors in the Broadcasting.
+    
+    Attributed:
+        shape1 -- Shape of first matrix
+        shape2 -- Shape of second matrix
     """
 
     def __init__(self, shape1, shape2):

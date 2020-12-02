@@ -1,23 +1,68 @@
 import numpy as np
-from hal_matrix import Hal_Matrix
+from hal import Hal_Matrix
 import time
 
-def compare_dot_product():
-    data=np.array([[10]*100]).repeat(100,axis=0)
-    x = Hal_Matrix(n=10,d=100, data=data)
-    data=np.array([[10]*100]).repeat(100,axis=0)
-    y = Hal_Matrix(n=10,d=100, data=data)
+def dot_product(x,y):
     t1 = time.time()
     z1 = x.dot(y)
     t2 = time.time()
-    print(' HAL_matrix time : {}'.format(t2-t1)) # 0.01703357696533203
-    x = x.to_numpy()
-    y = y.to_numpy()
+    hal_time = t2-t1
+    return hal_time
+
+def add_product(x,y):
+    t1 = time.time()
+    z1 = x + y
+    t2 = time.time()
+    hal_time = t2-t1
+    return hal_time
+
+def subtract_product(x,y):
+    t1 = time.time()
+    z1 = x - y
+    t2 = time.time()
+    hal_time = t2-t1
+    return hal_time
+
+def multiply_product(x,y):
+    t1 = time.time()
+    z1 = x.multiply(y)
+    t2 = time.time()
+    hal_time = t2-t1
+    return hal_time
+
+
+def compare_dot_product(x,y):
+    hal_time = dot_product(x,y)
+    x, y = x.to_numpy(), y.to_numpy()
     t1 = time.time()
     z2 = x.dot(y)
     t2 = time.time()
-    print('NumPy time: {}'.format(t2-t1)) # 2.231570243835449
+    numpy_time = t2-t1
+    return (hal_time, numpy_time)
 
+def compare_add_product(x,y):
+    hal_time = add_product(x,y)
+    x, y = x.to_numpy(), y.to_numpy()
+    t1 = time.time()
+    z2 = x + y 
+    t2 = time.time()
+    numpy_time = t2-t1
+    return (hal_time, numpy_time)
 
+def compare_subtract_product(x,y):
+    hal_time = subtract_product(x,y)
+    x, y = x.to_numpy(), y.to_numpy()
+    t1 = time.time()
+    z2 = x - y 
+    t2 = time.time()
+    numpy_time = t2-t1
+    return (hal_time, numpy_time)
 
-
+def compare_multiply_product(x,y):
+    hal_time = multiply_product(x,y)
+    x, y = x.to_numpy(), y.to_numpy()
+    t1 = time.time()
+    z2 = x * y
+    t2 = time.time()
+    numpy_time = t2-t1
+    return (hal_time, numpy_time)

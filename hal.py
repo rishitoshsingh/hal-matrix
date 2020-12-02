@@ -14,17 +14,11 @@ class Hal_Matrix:
         """
         self.n=n
         self.d=d
-        assert data.shape==(n**2,d), 'data is of incorrect shape, it shpuld be ({},{})'.format(n**2,d)
+        if data.shape != (n**2,d):
+            raise DataShapeMismatchError((n**2,d))
+        # assert data.shape==(n**2,d), 'data is of incorrect shape, it shpuld be ({},{})'.format(n**2,d)
         self.data=data
-
-        # creating blocks array
-        self.blocks = []
-        for dia_data in data:
-            self.blocks.append(dia_matrix((dia_data,[0]),shape=(d,d)))
-        self.blocks = np.array(self.blocks).reshape(n,n)
-        # creating matrix from blocks
-        self.matrix=bmat(self.blocks)
-        self.shape = self.matrix.shape
+        self.shape = (self.n * self.d, self.n * self.d) 
 
     def add(self, y):
         if not isinstance(y, Hal_Matrix):
@@ -40,8 +34,6 @@ class Hal_Matrix:
 
         # adding data 
         data = self.data + y.data
-        # updatinig blocks
-        self.blocks = []
         return Hal_Matrix(n=n,d=d,data=data)
 
     def multiply(self, y):
@@ -79,7 +71,14 @@ class Hal_Matrix:
         return Hal_Matrix(n=self.n,d=self.d,data=new_dia_datas)
 
     def to_numpy(self):
-        return self.matrix.todense()
+        blocks = []
+        for dia_data in self.data:
+            blocks.append(dia_matrix((dia_data,[0]),shape=(self.d,self.d)))
+        blocks = np.array(blocks).reshape(self.n,self.n)
+        # creating matrix from blocks
+        matrix=bmat(blocks)
+        
+        return matrix.toarray()
 
     def __add__(self,y):
         return self.add(y)
@@ -88,6 +87,9 @@ class Hal_Matrix:
         new_y = copy.deepcopy(y)
         new_y.data = new_y.data * -1
         return self.add(new_y)
+    
+    def __mul__(self,y):
+        return self.multiply(y)
 
     def __str__(self):
         return 'Hal_Matrix of dimension (n) {} and block dimension (d) {} with data = \n{}'.format(self.n,self.d,self.data)
