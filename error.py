@@ -65,3 +65,11 @@ class BroadcastError(Exception):
         self.shape2 = shape2
         self.message = 'Cannot broadcast {} and {}'.format(shape1,shape2)
         super().__init__(self.message)
+
+class InreversibleError(Exception):
+    """Exception raised if matrix is irreversible.
+    """
+
+    def __init__(self):
+        self.message = 'Matrix is irreversible'
+        super().__init__(self.message)

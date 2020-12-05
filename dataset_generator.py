@@ -5,7 +5,6 @@ import seaborn as sns
 import pandas as pd
 from test import *
 
-
 dot_hal_time, dot_numpy_time = [], []
 add_hal_time, add_numpy_time = [], []
 sub_hal_time, sub_numpy_time = [], []
