@@ -37,6 +37,9 @@ class Hal_Matrix:
         return Hal_Matrix(n=n,d=d,data=data)
     
     def inverse(self):
+        """
+        Find inverse of matrix (if inversable)
+        """
         eye_matrix = self.eye(self.n, self.d)
         given_matrix = copy.deepcopy(self)
         self.data = self.data.astype('float')
@@ -126,6 +129,7 @@ class Hal_Matrix:
         # creating matrix from blocks
         matrix=bmat(blocks)
         return matrix.toarray()
+
     
     @staticmethod
     def eye(n, d):
