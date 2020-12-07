@@ -75,7 +75,7 @@ def compare_multiply(x,y):
 
 def compare_inverse(x):
     hal_time = inverse(x)
-    x, y = x.to_numpy(), y.to_numpy()
+    x = x.to_numpy()
     t1 = time.time()
     z2 = np.linalg.inv(x) 
     t2 = time.time()
@@ -91,11 +91,10 @@ data = np.array([[1,2],
                  [13,14],
                  [15,16],
                  [17,18]])
-data = np.array([[1.,2.],
-                 [3.,4.],
-                 [5.,6.],
-                 [7.,8.]])
-
-x = Hal_Matrix(n=2,d=2, data=data)
-print(x.inverse())  
-print(x.to_numpy())
+# data = np.array([[1.,2.],
+#                  [3.,4.],
+#                  [5.,6.],
+#                  [7.,8.]])
+# x = Hal_Matrix(n=3,d=2, data=data)
+# print(x.inverse())  
+# print(x.to_numpy())
