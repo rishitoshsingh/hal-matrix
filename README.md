@@ -7,8 +7,8 @@ Consider a matrix A of size *<strong>R<sup>(nd x nd)</sup></strong>*, where each
 <img src="tex/images/representation.png" alt="representation" width="100"/>
 
 ## Comparision with NumPy arrays
-![dot](graphs/memory.png "memory")
-![dot](graphs/dot.png "dot")
-![add](graphs/add.png "add")
-![sub](graphs/sub.png "sub")
-![mul](graphs/mul.png "mul")
+![dot](tex/graphs/memory.png "memory")
+![dot](tex/graphs/dot.png "dot")
+![add](tex/graphs/add.png "add")
+![sub](tex/graphs/sub.png "sub")
+![mul](tex/graphs/mul.png "mul")

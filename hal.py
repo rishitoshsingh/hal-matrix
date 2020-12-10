@@ -76,7 +76,7 @@ class Hal_Matrix:
                         divide(given_matrix, i, j, divide_num)
                         divide(eye_matrix, i, j, divide_num)
                     else:
-                        raise InreversibleError()
+                        raise NotInvertible()
                     
                 elif given_matrix.data[i,j] != 1:
                     divide_num = given_matrix.data[i,j]
