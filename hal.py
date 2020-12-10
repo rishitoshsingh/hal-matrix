@@ -4,14 +4,14 @@ from scipy.sparse import dia_matrix, bmat
 import copy
 
 class Hal_Matrix:
+    """
+    Create a HAL Matrix
+    Attributes:
+        n -- shape of matrix (nxn)
+        d -- shape of blocks (dxd)
+        data -- data of block matrices, shape of data should be (n^2,d)
+    """
     def __init__(self, n, d, data):
-        """
-        Create a HAL Matrix
-        Attributes:
-            n -- shape of matrix (nxn)
-            d -- shape of blocks (dxd)
-            data -- data of block matrix, shape of data should be (n^2,d)
-        """
         self.n=n
         self.d=d
         if data.shape != (n**2,d):
@@ -162,4 +162,4 @@ class Hal_Matrix:
         return self.multiply(y)
 
     def __str__(self):
-        return 'Hal_Matrix of dimension (n) {} and block dimension (d) {} with data = \n{}'.format(self.n,self.d,self.data)
+        return '{}'.format(self.data)

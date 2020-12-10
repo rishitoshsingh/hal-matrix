@@ -1,5 +1,6 @@
 class DataShapeMismatchError(Exception):
-    """Exception raised for errors in the input salary.
+    """
+    Exception raised for errors in the input salary.
 
     Attributes:
         shape -- required shape
@@ -11,7 +12,8 @@ class DataShapeMismatchError(Exception):
         super().__init__(self.message)
 
 class TypeMismatchError(Exception):
-    """Exception raised for errors in the input salary.
+    """
+    Exception raised for errors in the input salary.
 
     Attributes:
         t1 -- Type of first object
@@ -25,7 +27,8 @@ class TypeMismatchError(Exception):
         super().__init__(self.message)
         
 class ShapeMismatchError(Exception):
-    """Exception raised for errors in the input salary.
+    """
+    Exception raised for errors in the input salary.
 
     Attributes:
         n1 -- Dimension of first matrix
@@ -39,7 +42,8 @@ class ShapeMismatchError(Exception):
         super().__init__(self.message)
 
 class BlockShapeMismatchError(Exception):
-    """Exception raised for errors in the Block Shape.
+    """
+    Exception raised for errors in the Block Shape.
 
     Attributes:
         d1 -- Dimension of first matrix
@@ -53,7 +57,8 @@ class BlockShapeMismatchError(Exception):
         super().__init__(self.message)
 
 class BroadcastError(Exception):
-    """Exception raised for errors in the Broadcasting.
+    """
+    Exception raised for errors in the Broadcasting.
     
     Attributed:
         shape1 -- Shape of first matrix
@@ -67,9 +72,10 @@ class BroadcastError(Exception):
         super().__init__(self.message)
 
 class NotInvertible(Exception):
-    """Exception raised if matrix is irreversible.
+    """
+    Exception raised if matrix is irreversible.
     """
 
     def __init__(self):
-        self.message = 'Matrix is irreversible'
+        self.message = 'Matrix is not invertible'
         super().__init__(self.message)

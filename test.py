@@ -95,6 +95,6 @@ data = np.array([[1,2],
 #                  [3.,4.],
 #                  [5.,6.],
 #                  [7.,8.]])
-# x = Hal_Matrix(n=3,d=2, data=data)
-# print(x.inverse())  
-# print(x.to_numpy())
+x = Hal_Matrix(n=3,d=2, data=data)
+print(x.inverse())  
+print(x.to_numpy())
