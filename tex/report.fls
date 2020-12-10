@@ -189,11 +189,11 @@ INPUT /home/rishi/Documents/hal-matrix/tex/graphs/mul2.png
 INPUT /home/rishi/Documents/hal-matrix/tex/graphs/sub2.png
 INPUT /home/rishi/Documents/hal-matrix/tex/graphs/sub2.png
 INPUT /home/rishi/Documents/hal-matrix/tex/graphs/sub2.png
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
-INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /home/rishi/Documents/hal-matrix/tex/report.aux
 INPUT /home/rishi/Documents/hal-matrix/tex/report.out
 INPUT /home/rishi/Documents/hal-matrix/tex/report.out

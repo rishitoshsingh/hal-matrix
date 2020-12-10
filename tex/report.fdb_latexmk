@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1607613299 "/home/rishi/Documents/hal-matrix/tex/report.tex" "/home/rishi/Documents/hal-matrix/tex/report.pdf" "report" 1607613305
-  "/home/rishi/Documents/hal-matrix/tex/report.aux" 1607613304 4040 4d270f483fe972ce98c48ad935d771d1 ""
-  "/home/rishi/Documents/hal-matrix/tex/report.tex" 1607613298 6150 883d8c13cba072a323c9339ad3b0a56e ""
+["pdflatex"] 1607615009 "/home/rishi/Documents/hal-matrix/tex/report.tex" "/home/rishi/Documents/hal-matrix/tex/report.pdf" "report" 1607615014
+  "/home/rishi/Documents/hal-matrix/tex/report.aux" 1607615014 4311 b7f85688013b8c6646736edeed32a991 ""
+  "/home/rishi/Documents/hal-matrix/tex/report.tex" 1607615003 6289 46d7ac1ac492d1a41c663bce7a34bc7b ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1591545468 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1591545468 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1591545468 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -113,13 +113,13 @@
   "graphs/sub2.png" 1607598587 298618 b5d68602ae2de2144e3f7f62ab9b7d46 ""
   "images/matrix.png" 1607234048 263239 989282bad4fdccc6dd3ec57eb69cdbcb ""
   "images/representation.png" 1607596740 275285 decba4924ff2be89f46b819dbd96ee49 ""
-  "report.aux" 1607613304 4040 4d270f483fe972ce98c48ad935d771d1 "pdflatex"
-  "report.out" 1607613304 305 4327ee50f79f19b23bc314224b0b3455 "pdflatex"
-  "report.tex" 1607613298 6150 883d8c13cba072a323c9339ad3b0a56e ""
+  "report.aux" 1607615014 4311 b7f85688013b8c6646736edeed32a991 "pdflatex"
+  "report.out" 1607615014 305 4327ee50f79f19b23bc314224b0b3455 "pdflatex"
+  "report.tex" 1607615003 6289 46d7ac1ac492d1a41c663bce7a34bc7b ""
   (generated)
-  "report.out"
-  "/home/rishi/Documents/hal-matrix/tex/report.log"
-  "report.aux"
   "/home/rishi/Documents/hal-matrix/tex/report.pdf"
   "report.pdf"
+  "/home/rishi/Documents/hal-matrix/tex/report.log"
+  "report.aux"
+  "report.out"
   "report.log"

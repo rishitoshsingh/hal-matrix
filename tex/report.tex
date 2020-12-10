@@ -40,7 +40,7 @@
 
 \section{Solution}
     
-    Data Structure to save matrix stated in the problem statement must be memory efficient and should be compatible with various matrix operations. It can be observed in \cref{img:matrix} that due to presence of block diagonal matrix $D_{ij}$, the final matrix $A$ can be treated as a sparse matrix if, $d \neq 1$. So, instead of saving all $nd \times nd$ elements, only $nd$ elements need to be saved, thus reducing memory requirement by $\frac{1}{d}$ factor.
+    Data Structure to save matrix stated in the problem statement must be memory efficient and should be compatible with various matrix operations. It can be observed in \cref{img:matrix} that due to presence of block diagonal matrix $D_{ij}$, the final matrix $A$ is a sparse matrix if, $d \neq 1$. So, instead of saving all $nd \times nd$ elements, only $n^2d$ elements need to be saved, thus reducing memory requirement by factor of $\frac{1}{d}$.
 
     \begin{figure}[H]
         \includegraphics[width=\linewidth]{images/matrix.png}
@@ -54,11 +54,11 @@
         \label{img:memory}    
     \end{figure}
 
-    \Cref{img:memory} shows what percentage of memory is required if we increase $d$ and keeping $n$ constant. We can alsoalways remain same notice that when $d=1$, $100\%$ memory is required, and in this particular condition matrix is no more a sparse matrix.
+    \Cref{img:memory} shows the percentage of memory required if we increase $d$ and keeping $n$ constant when compared with NumPy arrays. From \cref{img:memory} it can be observed that when $d=1$, $100\%$ memory is required, thus there will be no drop in memory use, and in this particular condition matrix is no more a sparse matrix.
 
     It can also be observed, that elements that are $0$, will never change after any matrix operation. So those elements can be ignored while applying matrix operation.
 
-    The best way to store these matrices of size $\mathbb{R}^{nd \times nd}$ is to store them in an array of shape $(n^2 \times d)$ and is represented in \cref{img:representation}. Each row of the proposed data structure stores diagonal elements of the block matrix.
+    The best way to store these matrices of size $\mathbb{R}^{nd \times nd}$ is to store them in an array of shape $(n^2 \times d)$ and is represented in \cref{img:representation}, where each row stores diagonal elements of the block matrix.
     
     \begin{figure}[htbp]
         \centering
@@ -67,31 +67,31 @@
         \label{img:representation}    
     \end{figure}
 
-
-\begin{figure*}[h]
+    \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\linewidth}
         \includegraphics[width=\linewidth]{graphs/dot2.png}
         \caption{Time taken to calculate dot product (in seconds)}
         \label{img:dot}
     \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\linewidth}
         \includegraphics[width=\linewidth]{graphs/add2.png}
         \caption{Time taken to add two matrices (in seconds)}
         \label{img:add}
     \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\linewidth}
         \includegraphics[width=\linewidth]{graphs/mul2.png}
         \caption{Time taken to perform element wise multiplication in two matrices (in seconds)}
         \label{img:mul}
     \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\linewidth}
         \includegraphics[width=\linewidth]{graphs/sub2.png}
         \caption{Time taken to subtract one matrix from another (in seconds)}
         \label{img:sub}
     \end{subfigure}
+    \caption{Comparison of NumPy arrays and proposed data structure to store matrix stated in problem statement}
     \label{img:comparision}
-\end{figure*}
+\end{figure}
 
 \SetKwInOut{Input}{Input}
 \SetKwInOut{Output}{Output}
