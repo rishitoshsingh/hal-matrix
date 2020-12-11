@@ -59,7 +59,7 @@ def compare_subtract(x,y):
     hal_time = subtract(x,y)
     x, y = x.to_numpy(), y.to_numpy()
     t1 = time.time()
-    z2 = x - y 
+    z2 = x - y
     t2 = time.time()
     numpy_time = t2-t1
     return (hal_time, numpy_time)
@@ -82,19 +82,19 @@ def compare_inverse(x):
     numpy_time = t2-t1
     return (hal_time, numpy_time)
 
-data = np.array([[1,2],
-                 [3,4],
-                 [5,6],
-                 [7,8],
-                 [9,10],
-                 [11,12],
-                 [13,14],
-                 [15,16],
-                 [17,18]])
-# data = np.array([[1.,2.],
-#                  [3.,4.],
-#                  [5.,6.],
-#                  [7.,8.]])
-x = Hal_Matrix(n=3,d=2, data=data)
-print(x.inverse())  
-print(x.to_numpy())
+# data = np.array([[1,2],
+#                  [3,4],
+#                  [5,6],
+#                  [7,8],
+#                  [9,10],
+#                  [11,12],
+#                  [13,14],
+#                  [15,16],
+#                  [17,18]])
+# # data = np.array([[1.,2.],
+# #                  [3.,4.],
+# #                  [5.,6.],
+# #                  [7.,8.]])
+# x = Hal_Matrix(n=3,d=2, data=data)
+# print(x.inverse())  
+# print(x.to_numpy())

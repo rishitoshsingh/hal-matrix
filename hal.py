@@ -19,26 +19,11 @@ class Hal_Matrix:
         # assert data.shape==(n**2,d), 'data is of incorrect shape, it shpuld be ({},{})'.format(n**2,d)
         self.data=data
         self.shape = (self.n * self.d, self.n * self.d) 
-
-    def add(self, y):
-        if not isinstance(y, Hal_Matrix):
-            raise TypeMismatchError(self, y)
-        if self.n != y.n and min(self.n, y.n) != 1:
-            raise BroadcastError(self.n, y.n)
-        if self.d != y.d and min(self.d, y.d) != 1:
-            raise BroadcastError(self.d, y.d)
-        
-        # setting new dimensions 
-        n = max(self.n,y.n)
-        d = max(self.d,y.d)
-
-        # adding data 
-        data = self.data + y.data
-        return Hal_Matrix(n=n,d=d,data=data)
     
     def inverse(self):
         """
         Find inverse of matrix (if inversable)
+        Returns: inverse of given Hal_Matrix
         """
         eye_matrix = self.eye(self.n, self.d)
         given_matrix = copy.deepcopy(self)
@@ -122,6 +107,10 @@ class Hal_Matrix:
         return Hal_Matrix(n=self.n,d=self.d,data=new_dia_datas)
 
     def to_numpy(self):
+        """
+        Convert Hal_Matrix to dense numpy array
+        Returns: Dense NumPy Array 
+        """
         blocks = []
         for dia_data in self.data:
             blocks.append(dia_matrix((dia_data,[0]),shape=(self.d,self.d)))
@@ -133,6 +122,9 @@ class Hal_Matrix:
     
     @staticmethod
     def eye(n, d):
+        """
+        Create and return an identity Hal_Matrix
+        """
         data = [0]*n**2
         data[0::n+1] = [1]*n
         data = np.array(data).reshape(-1,1).repeat(d,axis=1)
@@ -140,26 +132,57 @@ class Hal_Matrix:
     
     @staticmethod
     def zeros(n, d):
+        """
+        Create and return a Hal_Matrix of zeros
+        """
         data = [0]*n**2
         data = np.array(data).reshape(-1,1).repeat(d,axis=1)
         return Hal_Matrix(n=n,d=d,data=data)    
 
     @staticmethod
     def ones(n, d):
+        """
+        Create and return a Hal_Matrix of ones
+        """
         data = [1]*n**2
         data = np.array(data).reshape(-1,1).repeat(d,axis=1)
         return Hal_Matrix(n=n,d=d,data=data)    
 
     def __add__(self,y):
-        return self.add(y)
+        """
+        Add two Ha-Matrix
+        """
+        if not isinstance(y, Hal_Matrix):
+            raise TypeMismatchError(self, y)
+        if self.n != y.n and min(self.n, y.n) != 1:
+            raise BroadcastError(self.n, y.n)
+        if self.d != y.d and min(self.d, y.d) != 1:
+            raise BroadcastError(self.d, y.d)
+        
+        # setting new dimensions 
+        n = max(self.n,y.n)
+        d = max(self.d,y.d)
+
+        # adding data 
+        data = self.data + y.data
+        return Hal_Matrix(n=n,d=d,data=data)
     
     def __sub__(self,y):
+        """
+        Subtract two Hal_Matrix
+        """
         new_y = copy.deepcopy(y)
         new_y.data = new_y.data * -1
-        return self.add(new_y)
+        return self.__add__(new_y)
     
     def __mul__(self,y):
+        """
+        Perform element wise multiplication of two Hal_Matrix
+        """
         return self.multiply(y)
 
     def __str__(self):
+        """
+        print Hal_Matrix
+        """
         return '{}'.format(self.data)

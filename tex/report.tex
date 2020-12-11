@@ -36,11 +36,11 @@
         \begin{bmatrix} D_{11} & D_{12} & D_{13} & \cdots & D_{1n} \\ D_{21} & D_{22} & D_{23} & \cdots & D_{2n} \\ \cdots & \cdots & \cdots & \cdots & \cdots \\ D_{n1} & D_{n2} & D_{n3} & \cdots & D_{nn} \end{bmatrix}
     \end{equation}
 
-    Construct an efficient data structure to reploopresent such matrices and devise algorithms to perform matrix operations, such as matrix multiplications and matrix inverse, on the data structure you designed. Provide a technical write-up of your solution along with associated code implementing your solution.
+    Construct an efficient data structure to represent such matrices and devise algorithms to perform matrix operations, such as matrix multiplications and matrix inverse, on the data structure you designed. Provide a technical write-up of your solution along with associated code implementing your solution.
 
 \section{Solution}
     
-    Data Structure to save matrix stated in the problem statement must be memory efficient and should be compatible with various matrix operations. It can be observed in \cref{img:matrix} that due to presence of block diagonal matrix $D_{ij}$, the final matrix $A$ is a sparse matrix if, $d \neq 1$. So, instead of saving all $nd \times nd$ elements, only $n^2d$ elements need to be saved, thus reducing memory requirement by factor of $\frac{1}{d}$.
+    Data Structure to represent matrix stated in the problem statement must be memory efficient and should be compatible with various matrix operations. It can be observed in \cref{img:matrix} that due to presence of block diagonal matrix $D_{ij}$, the final matrix $A$ is a sparse matrix if, $d \neq 1$. So, instead of saving all $nd \times nd$ elements, only $n^2d$ elements need to be saved, thus reducing memory requirement by factor of $\frac{1}{d}$.
 
     \begin{figure}[H]
         \includegraphics[width=\linewidth]{images/matrix.png}
