@@ -4,7 +4,9 @@ Consider a matrix A of size *<strong>R<sup>(nd x nd)</sup></strong>*, where each
 
 <!-- ![matrix](images/matrix.png "matrix") -->
 <img src="tex/images/matrix.png" alt="matrix1" width="500"/>
-<img src="tex/images/representation.png" alt="representation" width="100"/>
+<img src="tex/images/representation.png" alt="representation" width="250"/>
+
+For source code checkout "hal.py" file. 
 
 ## Comparision with NumPy arrays
 ![dot](tex/graphs/memory.png "memory")
