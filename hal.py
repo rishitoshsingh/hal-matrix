@@ -181,8 +181,7 @@ class Hal_Matrix:
         """
         return self.multiply(y)
 
-    def __str__(self):
-        """
-        print Hal_Matrix
-        """
-        return '{}'.format(self.data)
+    def __repr__(self):
+        msg = '(n, d) : ({},{})'.format(self.n,self.d)
+        msg += '\ndiagonal_data: \n{}'
+        return msg.format(self.data)
